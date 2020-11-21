@@ -6,7 +6,11 @@ authors: [ McNagatuki ]
 description: Aho Shine
 
 commands:
-  Real:
+  real:
     description: enable or disable this plugin
-    usage: /<command> enable/disable
+    usage: /<command> <on|off|set|save|help>
     default: op
+
+  permissions:
+    Real:
+      default: op

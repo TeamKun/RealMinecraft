@@ -3,6 +3,8 @@ package com.github.mc_nagatuki.realminecraft;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Optional;
+
 // TODO: 各プレイヤーモード時にどうなるか確認すべし
 // モブに乗っていると爆発しないなぁ
 // そのままの方がモブ探しになってネタが続くか
@@ -11,6 +13,7 @@ public final class RealMinecraft extends JavaPlugin {
     private PlayerMovementListener pml;
     private MineManager mm;
     private PlayerExploder pe;
+    private CommandManager cmdMng;
 
     private boolean activated = false;
     private int power = 1;
@@ -25,7 +28,10 @@ public final class RealMinecraft extends JavaPlugin {
         this.pe = new PlayerExploder();
 
         this.pml = new PlayerMovementListener(this);
-        getServer().getPluginManager().registerEvents(this.pml, this);
+        this.getServer().getPluginManager().registerEvents(this.pml, this);
+
+        this.cmdMng = new CommandManager(this);
+        this.getCommand("real").setExecutor(this.cmdMng);
     }
 
     @Override
@@ -42,6 +48,12 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setActivated(boolean flag){
         this.activated = flag;
+
+        if(flag){
+            this.getServer().broadcastMessage("§9" + "Nagatukiは地雷を踏み抜いた");
+        }else{
+            this.getServer().broadcastMessage("aho shine");
+        }
     }
     public boolean getActivated(){
         return this.activated;
