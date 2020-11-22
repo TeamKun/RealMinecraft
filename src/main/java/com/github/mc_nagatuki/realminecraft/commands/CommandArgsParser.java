@@ -17,6 +17,10 @@ public class CommandArgsParser {
         return m.find();
     }
 
+    public static boolean isNumber(String ipt){
+        return CommandArgsParser.isInteger(ipt) || CommandArgsParser.isDouble(ipt);
+    }
+
     public static boolean isTilde(String ipt){
         return ipt.equalsIgnoreCase("~");
     }

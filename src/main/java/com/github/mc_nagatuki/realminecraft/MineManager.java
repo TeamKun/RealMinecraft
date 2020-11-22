@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.Random;
 
 // 爆弾の管理
-class MineManager{
+public class MineManager{
     private Set<String> mines;
 
     // コンストラクタ

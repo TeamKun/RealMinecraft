@@ -15,13 +15,16 @@ public class CmdHelp extends CommandAbstract {
     private String cmdStr = "help";
 
     final static String[] HELP_MESSAGE = {
-            "--------------[" + ChatColor.BLUE + "This is \"Real\" Minecraft!" + ChatColor.RESET + "]--------------",
+            "----------------[" + ChatColor.BLUE + "This is \"Real\" Minecraft!" + ChatColor.RESET + "]----------------",
             "/real help: ヘルプ表示",
             "/real < on | off >: プラグインを有効化/無効化",
-            "/real set < pos1 | pos2 | power | damage | probability >: 種々のパラメータを設定",
-            "   pos1: ランダム設置の始点, pos2: ランダム設置の終点  power: 爆発の大きさ",
-            "   damage: 与ダメージ量, probability: ランダム設置の頻度",
-            "-------------------------------------------------",
+            "/real set < pos1 | pos2 > x, z : ランダム設置の始点/終点を設定",
+            "/real set power: 爆発の大きさの設定",
+//            "/real set damage: 与ダメージ量の設定",
+            "/real set probability: ランダム設置の頻度",
+            "/real autolay: pos1とpos2で指定した範囲に地雷を自動設置",
+            "/real autolay x1, z1, x2, z2: 範囲を指定して地雷を自動設置",
+            "-----------------------------------------------------",
     };
 
     public CmdHelp(RealMinecraft plugin) {

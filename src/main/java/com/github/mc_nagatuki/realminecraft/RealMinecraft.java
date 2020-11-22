@@ -6,6 +6,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Optional;
 
 // TODO: 各プレイヤーモード時にどうなるか確認すべし
+    // survivalのみ
+// netherはどうなっている？
 // モブに乗っていると爆発しないなぁ
 // そのままの方がモブ探しになってネタが続くか
 
@@ -87,16 +89,30 @@ public final class RealMinecraft extends JavaPlugin {
 
 //        this.getServer().broadcastMessage("x: " + this.x1 + " y: " + this.z1);
     }
+    public int getX1(){
+        return this.x1;
+    }
+    public int getZ1(){
+        return this.z1;
+    }
 
     public void setPos2(int x, int z){
         this.x2 = x;
         this.z2 = z;
     }
+    public int getX2(){
+        return this.x2;
+    }
+    public int getZ2(){
+        return this.z2;
+    }
 
     // コマンド
     // 地雷設置
-    // 各種変数設定
-    // 設定記録
+        // 自動設置
+        // 全解除
     // アイテムクリックで爆弾解除
     // アイテムクリックで爆弾設置
+
+    // 設定記録
 }
