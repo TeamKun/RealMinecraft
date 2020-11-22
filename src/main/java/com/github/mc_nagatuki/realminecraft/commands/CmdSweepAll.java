@@ -1,10 +1,8 @@
 package com.github.mc_nagatuki.realminecraft.commands;
 
 import com.github.mc_nagatuki.realminecraft.RealMinecraft;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;

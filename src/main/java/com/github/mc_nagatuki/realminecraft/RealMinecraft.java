@@ -2,15 +2,6 @@ package com.github.mc_nagatuki.realminecraft;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-// TODO: netherはどうなっている？
-    // 同じ座標で爆発した
-    // ワールドごとに地雷位置変えるなら持ち訳ないと...
-// TODO: モブに乗っていると爆発しないなぁ
-    // そのままの方がモブ探しになってネタが続くか
-    // Entityの上に乗っていたら爆発させるのもあり
-// TODO: 火もコマンドでオンオフするか
-    // そうすれば延焼オフとの組み合わせで分かり易く爆発できるかも
-
 public final class RealMinecraft extends JavaPlugin {
     private PlayerMovementListener pml;
     private MineManager mm;

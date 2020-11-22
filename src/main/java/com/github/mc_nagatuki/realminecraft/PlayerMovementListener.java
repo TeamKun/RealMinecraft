@@ -28,8 +28,9 @@ public class PlayerMovementListener implements Listener {
         if(p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR) return;
 
         // プレイヤーが浮いていたら何もしない
+        // ただし乗り物に乗っている場合を除く
         // 厳密にやるならy座標を見た方がいいらしい
-        if(!p.isOnGround()) return;
+        if(!(p.isOnGround() || p.isInsideVehicle())) return;
 
         //移動先の座標を得る
         Location loc = e.getTo();

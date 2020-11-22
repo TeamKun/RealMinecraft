@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.Random;
 
 // 爆弾の管理
+// NOTE: ワールド間で情報を分けていないので、オーバーワールドとネザーの同じ座標で爆発する
 public class MineManager{
     private Set<String> mines;
 
