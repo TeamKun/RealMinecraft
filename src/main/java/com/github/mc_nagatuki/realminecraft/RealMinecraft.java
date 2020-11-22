@@ -19,8 +19,7 @@ public final class RealMinecraft extends JavaPlugin {
     private int power = 1;
     private double damage = 5.0;
     private double probability = 0.3; // default
-    // start position
-    // end position
+    private int x1, z1, x2, z2;
 
     @Override
     public void onEnable() {
@@ -34,10 +33,6 @@ public final class RealMinecraft extends JavaPlugin {
         this.getCommand("real").setExecutor(this.cmdMng);
     }
 
-    @Override
-    public void onDisable(){
-    }
-
     public MineManager getMineManager(){
         return this.mm;
     }
@@ -49,11 +44,11 @@ public final class RealMinecraft extends JavaPlugin {
     public void setActivated(boolean flag){
         this.activated = flag;
 
-        if(flag){
-            this.getServer().broadcastMessage("§9" + "Nagatukiは地雷を踏み抜いた");
-        }else{
-            this.getServer().broadcastMessage("aho shine");
-        }
+//        if(flag){
+//            this.getServer().broadcastMessage("§9" + "Nagatukiは地雷を踏み抜いた");
+//        }else{
+//            this.getServer().broadcastMessage("aho shine");
+//        }
     }
     public boolean getActivated(){
         return this.activated;
@@ -61,6 +56,8 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setPower(int power){
         this.power = power;
+
+//        this.getServer().broadcastMessage("power: " + this.power);
     }
     public int getPower(){
         return this.power;
@@ -68,6 +65,8 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setDamage(double damage) {
         this.damage = damage;
+
+//        this.getServer().broadcastMessage("damage: " + this.damage);
     }
     public double getDamage() {
         return damage;
@@ -75,15 +74,29 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setProbability(double probability){
         this.probability = probability;
+
+//        this.getServer().broadcastMessage("probability: " + this.probability);
     }
     public double getProbability() {
         return probability;
     }
 
+    public void setPos1(int x, int z){
+        this.x1 = x;
+        this.z1 = z;
+
+//        this.getServer().broadcastMessage("x: " + this.x1 + " y: " + this.z1);
+    }
+
+    public void setPos2(int x, int z){
+        this.x2 = x;
+        this.z2 = z;
+    }
 
     // コマンド
     // 地雷設置
     // 各種変数設定
     // 設定記録
-    // プラグイン起動・終了
+    // アイテムクリックで爆弾解除
+    // アイテムクリックで爆弾設置
 }

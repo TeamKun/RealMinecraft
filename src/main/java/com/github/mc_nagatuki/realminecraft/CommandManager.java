@@ -3,15 +3,12 @@ package com.github.mc_nagatuki.realminecraft;
 import com.github.mc_nagatuki.realminecraft.commands.*;
 
 import org.bukkit.command.Command;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -23,9 +20,10 @@ public class CommandManager implements CommandExecutor, TabCompleter {
         this.plugin = plugin;
 
         this.commands = new CommandAbstract[]{
-                new On(plugin),
-                new Off(plugin),
-                new Help(plugin),
+                new CmdOn(plugin),
+                new CmdOff(plugin),
+                new CmdHelp(plugin),
+                new CmdSet(plugin),
         };
     }
 
@@ -40,6 +38,22 @@ public class CommandManager implements CommandExecutor, TabCompleter {
 
         return false;
     }
+
+    @Override
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+        List<String> result = new ArrayList<>();
+
+        for(CommandAbstract e : this.commands){
+            List<String> ret = e.tabComplete(sender, command, alias, args);
+
+            if(ret == null) continue;
+
+            result.addAll(ret);
+        }
+
+        return result;
+    }
+
 
 //        if (args.length > 0) {
 //            switch (args[0]) {
@@ -68,23 +82,6 @@ public class CommandManager implements CommandExecutor, TabCompleter {
 //            }
 //        }
 
-    @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
-        List<String> result = new ArrayList<>();
-
-        for(CommandAbstract e : this.commands){
-            List<String> ret = e.tabComplete(sender, command, alias, args);
-
-            if(ret == null) System.out.println("nullだよ");
-            if(ret == null) continue;
-
-            result.addAll(ret);
-            System.out.println("resultに追加されたよ");
-            System.out.println(Arrays.toString(result.toArray()));
-        }
-
-        return result;
-    }
 //        switch (args.length) {
 //            case 1:
 //                return Stream.of("help", "type", "leader")

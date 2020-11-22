@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class On extends CommandAbstract {
+public class CmdOn extends CommandAbstract {
     private RealMinecraft plugin;
     private String cmdStr = "on";
 
-    public On(RealMinecraft plugin) {
+    public CmdOn(RealMinecraft plugin) {
         super();
         this.plugin = plugin;
     }
@@ -20,6 +20,7 @@ public class On extends CommandAbstract {
     public boolean executeCommand(CommandSender sender, Command command, String label, String[] args){
         if(args.length == 1 && args[0].equalsIgnoreCase(this.cmdStr)){
             this.plugin.setActivated(true);
+            sender.sendMessage("[RealMinecraft] 有効化しました。");
             return true;
         }
 
