@@ -1,15 +1,15 @@
 package com.github.mc_nagatuki.realminecraft;
 
-import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Optional;
-
-// TODO: 各プレイヤーモード時にどうなるか確認すべし
-    // survivalのみ
-// netherはどうなっている？
-// モブに乗っていると爆発しないなぁ
-// そのままの方がモブ探しになってネタが続くか
+// TODO: netherはどうなっている？
+    // 同じ座標で爆発した
+    // ワールドごとに地雷位置変えるなら持ち訳ないと...
+// TODO: モブに乗っていると爆発しないなぁ
+    // そのままの方がモブ探しになってネタが続くか
+    // Entityの上に乗っていたら爆発させるのもあり
+// TODO: 火もコマンドでオンオフするか
+    // そうすれば延焼オフとの組み合わせで分かり易く爆発できるかも
 
 public final class RealMinecraft extends JavaPlugin {
     private PlayerMovementListener pml;
@@ -17,11 +17,11 @@ public final class RealMinecraft extends JavaPlugin {
     private PlayerExploder pe;
     private CommandManager cmdMng;
 
-    private boolean activated = false;
     private int power = 1;
+    private int x1 = 0, z1 = 0, x2 = 0, z2 = 0;
     private double damage = 5.0;
-    private double probability = 0.3; // default
-    private int x1, z1, x2, z2;
+    private double probability = 0.3;
+    private boolean activated = false;
 
     @Override
     public void onEnable() {
@@ -45,12 +45,6 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setActivated(boolean flag){
         this.activated = flag;
-
-//        if(flag){
-//            this.getServer().broadcastMessage("§9" + "Nagatukiは地雷を踏み抜いた");
-//        }else{
-//            this.getServer().broadcastMessage("aho shine");
-//        }
     }
     public boolean getActivated(){
         return this.activated;
@@ -58,8 +52,6 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setPower(int power){
         this.power = power;
-
-//        this.getServer().broadcastMessage("power: " + this.power);
     }
     public int getPower(){
         return this.power;
@@ -67,8 +59,6 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setDamage(double damage) {
         this.damage = damage;
-
-//        this.getServer().broadcastMessage("damage: " + this.damage);
     }
     public double getDamage() {
         return damage;
@@ -76,8 +66,6 @@ public final class RealMinecraft extends JavaPlugin {
 
     public void setProbability(double probability){
         this.probability = probability;
-
-//        this.getServer().broadcastMessage("probability: " + this.probability);
     }
     public double getProbability() {
         return probability;
@@ -86,8 +74,6 @@ public final class RealMinecraft extends JavaPlugin {
     public void setPos1(int x, int z){
         this.x1 = x;
         this.z1 = z;
-
-//        this.getServer().broadcastMessage("x: " + this.x1 + " y: " + this.z1);
     }
     public int getX1(){
         return this.x1;
@@ -107,10 +93,7 @@ public final class RealMinecraft extends JavaPlugin {
         return this.z2;
     }
 
-    // コマンド
-    // 地雷設置
-        // 自動設置
-        // 全解除
+
     // アイテムクリックで爆弾解除
     // アイテムクリックで爆弾設置
 

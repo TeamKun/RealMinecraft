@@ -24,6 +24,7 @@ public class CmdHelp extends CommandAbstract {
             "/real set probability: ランダム設置の頻度",
             "/real autolay: pos1とpos2で指定した範囲に地雷を自動設置",
             "/real autolay x1, z1, x2, z2: 範囲を指定して地雷を自動設置",
+            "/real sweepall: 設置した地雷を全撤去する",
             "-----------------------------------------------------",
     };
 

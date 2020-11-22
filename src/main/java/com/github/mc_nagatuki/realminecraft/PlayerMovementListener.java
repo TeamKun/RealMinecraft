@@ -1,5 +1,6 @@
 package com.github.mc_nagatuki.realminecraft;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -20,9 +21,14 @@ public class PlayerMovementListener implements Listener {
         // プラグインがオフなら何もしない
         if(!this.plugin.getActivated()) return;
 
+        // プレイヤーを取得
+        Player p = e.getPlayer();
+
+        // プレイヤーがクリエイティブかスペクテイターならなにもしない
+        if(p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR) return;
+
         // プレイヤーが浮いていたら何もしない
         // 厳密にやるならy座標を見た方がいいらしい
-        Player p = e.getPlayer();
         if(!p.isOnGround()) return;
 
         //移動先の座標を得る
