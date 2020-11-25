@@ -13,12 +13,9 @@ import java.util.List;
 
 
 public class CommandManager implements CommandExecutor, TabCompleter {
-    private RealMinecraft plugin;
     private CommandAbstract[] commands;
 
-    public CommandManager(RealMinecraft plugin){
-        this.plugin = plugin;
-
+    public CommandManager(){
         this.commands = new CommandAbstract[]{
                 new CmdOn(plugin),
                 new CmdOff(plugin),

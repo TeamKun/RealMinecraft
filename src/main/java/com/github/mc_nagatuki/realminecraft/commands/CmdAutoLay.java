@@ -6,7 +6,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class CmdAutoLay extends CommandAbstract {
                 x1 = Integer.parseInt(args[1]);
             } else if(CommandArgsParser.isDouble(args[1])){
                 x1 = CommandArgsParser.positionToBlockPosition(Double.parseDouble(args[1]));
-            } else if(CommandArgsParser.isTilde(args[1])){
+            } else if(CommandArgsParser.hasTilde(args[1])){
                 x1 = loc.getBlockX();
             } else{
                 return false;
@@ -54,7 +53,7 @@ public class CmdAutoLay extends CommandAbstract {
                 z1 = Integer.parseInt(args[2]);
             } else if(CommandArgsParser.isDouble(args[2])){
                 z1 = CommandArgsParser.positionToBlockPosition(Double.parseDouble(args[2]));
-            } else if(CommandArgsParser.isTilde(args[2])){
+            } else if(CommandArgsParser.hasTilde(args[2])){
                 z1 = loc.getBlockZ();
             } else{
                 return false;
@@ -64,7 +63,7 @@ public class CmdAutoLay extends CommandAbstract {
                 x2 = Integer.parseInt(args[3]);
             } else if(CommandArgsParser.isDouble(args[3])){
                 x2 = CommandArgsParser.positionToBlockPosition(Double.parseDouble(args[3]));
-            } else if(CommandArgsParser.isTilde(args[3])){
+            } else if(CommandArgsParser.hasTilde(args[3])){
                 x2 = loc.getBlockX();
             } else{
                 return false;
@@ -74,7 +73,7 @@ public class CmdAutoLay extends CommandAbstract {
                 z2 = Integer.parseInt(args[4]);
             } else if(CommandArgsParser.isDouble(args[4])){
                 z2 = CommandArgsParser.positionToBlockPosition(Double.parseDouble(args[4]));
-            } else if(CommandArgsParser.isTilde(args[4])){
+            } else if(CommandArgsParser.hasTilde(args[4])){
                 z2 = loc.getBlockZ();
             } else{
                 return false;
@@ -92,19 +91,19 @@ public class CmdAutoLay extends CommandAbstract {
 
     public List<String> tabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1 && this.cmdStr.startsWith(args[0])) {
-            return new ArrayList<>(Arrays.asList(this.cmdStr));
+            return Arrays.asList(this.cmdStr);
         }
 
         if(args[0].equalsIgnoreCase(this.cmdStr)){
             switch (args.length){
                 case 2:
-                    return new ArrayList<>(Arrays.asList("~ ~ ~ ~"));
+                    return Arrays.asList("~ ~ ~ ~");
                 case 3:
-                    return new ArrayList<>(Arrays.asList("~ ~ ~"));
+                    return Arrays.asList("~ ~ ~");
                 case 4:
-                    return new ArrayList<>(Arrays.asList("~ ~"));
+                    return Arrays.asList("~ ~");
                 case 5:
-                    return new ArrayList<>(Arrays.asList("~"));
+                    return Arrays.asList("~");
             }
         }
 

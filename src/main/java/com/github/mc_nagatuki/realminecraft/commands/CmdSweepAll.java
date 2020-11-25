@@ -29,7 +29,7 @@ public class CmdSweepAll extends CommandAbstract{
 
     public List<String> tabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1 && this.cmdStr.startsWith(args[0])) {
-            return new ArrayList<>(Arrays.asList(this.cmdStr));
+            return Arrays.asList(this.cmdStr);
         }
 
         return null;
