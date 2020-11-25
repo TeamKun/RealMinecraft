@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RealMinecraft extends JavaPlugin {
     private PlayerMovementListener pml;
+    private PlayerClickListener pcl;
     private MineManager mm;
     private PlayerExploder pe;
     private CommandManager cmdMng;
@@ -21,6 +22,9 @@ public final class RealMinecraft extends JavaPlugin {
 
         this.pml = new PlayerMovementListener(this);
         this.getServer().getPluginManager().registerEvents(this.pml, this);
+
+        this.pcl = new PlayerClickListener(this);
+        this.getServer().getPluginManager().registerEvents(this.pcl, this);
 
         this.cmdMng = new CommandManager(this);
         this.getCommand("real").setExecutor(this.cmdMng);
