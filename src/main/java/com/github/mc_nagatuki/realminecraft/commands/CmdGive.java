@@ -1,9 +1,11 @@
 package com.github.mc_nagatuki.realminecraft.commands;
 
+import com.github.mc_nagatuki.realminecraft.Items;
 import com.github.mc_nagatuki.realminecraft.RealMinecraft;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -73,9 +75,9 @@ public class CmdGive extends CommandAbstract {
         private RealMinecraft plugin;
         private String cmdStr = "detector";
 
-        private String itemId = "minecraft:blaze_rod";
-        private String itemName = "地雷探知機";
-        private String itemNameColor = "green";
+        private String itemId = Items.Detector.id;
+        private String itemName = Items.Detector.name;
+        private String itemNameColor = Items.Detector.color;
         private String nbt;
 //        private String itemLore = "左クリックで地雷が埋まっているかを確認";
 
@@ -126,9 +128,9 @@ public class CmdGive extends CommandAbstract {
         private RealMinecraft plugin;
         private String cmdStr = "installer";
 
-        private String itemId = "minecraft:bowl";
-        private String itemName = "ほんものの地雷";
-        private String itemNameColor = "red";
+        private String itemId = Items.Installer.id;
+        private String itemName = Items.Installer.name;
+        private String itemNameColor = Items.Installer.color;
         private String nbt;
 
         public Installer(RealMinecraft plugin){
@@ -177,9 +179,9 @@ public class CmdGive extends CommandAbstract {
         private RealMinecraft plugin;
         private String cmdStr = "sweeper";
 
-        private String itemId = "minecraft:wheat";
-        private String itemName = "マインスイーパー";
-        private String itemNameColor = "yellow";
+        private String itemId = Items.Sweeper.id;
+        private String itemName = Items.Sweeper.name;
+        private String itemNameColor = Items.Sweeper.color;
         private String nbt;
 
         public Sweeper(RealMinecraft plugin){
