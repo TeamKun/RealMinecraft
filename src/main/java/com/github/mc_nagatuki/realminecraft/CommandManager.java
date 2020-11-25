@@ -26,6 +26,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
                 new CmdSet(plugin),
                 new CmdAutoLay(plugin),
                 new CmdSweepAll(plugin),
+                new CmdGive(plugin),
         };
     }
 
